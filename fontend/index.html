@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueBell Totes</title>
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <h1 onclick="scrollToSection('banner')">BlueBell Totes</h1>
+      <i class="fas fa-bars hamburger" id="menu-icon"></i>
+      
+      <ul id="nav-links">
+        <li onclick="scrollToSection('banner')">Home</li>
+        <li onclick="scrollToSection('products')">Products</li>
+        <li onclick="scrollToSection('about')">About</li>
+        <li onclick="scrollToSection('contact')">Contact</li>
+      </ul>
+      <button id="cart">
+        <i class="fas fa-shopping-cart add-to-cart"></i>
+        <span id="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section id="banner" class="banner">
+    <h2>Carry Style, Carry Adventure</h2>
+    <p>Eco-friendly, handcrafted totes designed for your everyday lifestyle.</p>
+    <button class="shop-now" onclick="scrollToSection('products')">Shop Now</button>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <h2>Our Tote Collection</h2>
+    <div class="border"></div>
+    <div id="product-list" class="product-container"></div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h1>Why Choose BlueBell Totes?</h1>
+    <div class="border"></div>
+    <p>Each tote is eco-friendly, stylish, and durable. Crafted with recycled materials and inspired by nature – when you buy from us, you support sustainability and creativity.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h1>Contact Us</h1>
+    <div class="border"></div>
+    <p>Email: <a href="mailto:thebluebell.bgp@gmail.com">thebluebell.bgp@gmail.com</a></p>
+    <p>Phone: <a href="tel:+918406070202">+91 84060 70202</a></p>
+    <p>Phone: <a href="tel:+918406070203">+91 84060 70203</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>BlueBell Totes</h2>
+        <p>Eco-friendly, durable, and stylish tote bags for every occasion.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li onclick="scrollToSection('banner')">Home</li>
+          <li onclick="scrollToSection('products')">Products</li>
+          <li onclick="scrollToSection('about')">About</li>
+          <li onclick="scrollToSection('contact')">Contact</li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:thebluebell.bgp@gmail.com">thebluebell.bgp@gmail.com</a></p>
+        <p>Phone: <a href="tel:+918406070202">+91 84060 70202</a></p>
+        <p>Phone: <a href="tel:+918406070203">+91 84060 70203</a></p>
+        <p><strong>Address:</strong> Ghani Chak, Pasalla Chowk,<br>Near UCO Bank,<br>Bhagalpur</p>
+      </div>
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 BlueBell Totes. All Rights Reserved.</div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Your Cart</h3>
+        <button class="close-btn" onclick="closeModal('cart-modal')">&times;</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-total" id="cart-total">Total: ₹0</div>
+      <button class="checkout-btn" onclick="openModal('checkout-modal')">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Checkout</h3>
+        <button class="close-btn" onclick="closeModal('checkout-modal')">&times;</button>
+      </div>
+      <form id="checkout-form" class="checkout-form" onsubmit="handlePurchase(event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="email">Email (optional)</label>
+          <input type="email" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="contact_no">Phone (optional)</label>
+          <input type="number" id="contact_no"  />
+        </div>
+        <div class="form-group">
+          <label for="payment">Payment Method</label>
+          <select id="payment" required>
+            <option value="cod">Cash on Delivery</option>
+            <option value="card">Credit/Debit Card</option>
+            <option value="online">Online Payment</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Confirm Purchase</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="./js/index.js"></script>
+  <script src="./data/data.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</body>
+</html>
