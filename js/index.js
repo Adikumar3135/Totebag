@@ -48,7 +48,7 @@ function renderProducts(){
     card.innerHTML = `
       <img src="${p.img}" alt="${p.name}" 
            onerror="this.src='images/placeholder.png'" 
-           style="width:100%;height:120px;object-fit:cover" />
+           style="width:100%;height:250px;object-fit:cover" />
       <h3>${p.name}</h3>
       <p>₹${p.price}</p>
       <button onclick="addToCart(${p.id})">Add to Cart</button>
@@ -183,3 +183,4 @@ const input = document.getElementById("contact_no");
 if(input){
   input.addEventListener("input", ()=>{ if(input.value.length>10) input.value = input.value.slice(0,10); });
 }
+
